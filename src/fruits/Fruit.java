@@ -1,4 +1,6 @@
 package fruits;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 abstract public class Fruit {
     private double weight;
@@ -39,7 +41,7 @@ abstract public class Fruit {
         this.color = color;
     }
 
-    public static double computeWeight(Fruit[] fruits) {
+    public static double computeWeight(Arraylist<Fruit> fruits) {
         double totalWeight = 0;
         for(Fruit f: fruits){
             totalWeight += f.getWeight();
@@ -47,7 +49,7 @@ abstract public class Fruit {
         return totalWeight;
     }
 
-    public static double computeSugarContent(Fruit[] fruits) {
+    public static double computeSugarContent(Arraylist<Fruit> fruits) {
         double totalSugarContent = 0;
         for(Fruit f: fruits){
             totalSugarContent += f.getSugar_content();
@@ -55,7 +57,51 @@ abstract public class Fruit {
         return totalSugarContent;
     }
 
-    public static void prepareFruit(Fruit[] fruits) {
+    public static HashMap<String, Integer> countFruit(ArrayList<Fruit> fruits)
+    {
+        HashMap<String,Integer> map =new HashMap<String,Integer>();
+        for(Fruit f : fruits)
+        {
+            if(f.instanceof(Banana))
+            {
+                map.put("Banana",1);
+            }
+            if(f.instanceof(Apple))
+            {
+                map.put("Apple",2);
+            }
+            if(f.instanceof(Mango))
+            {
+                map.put("Mango",3);
+            }
+        }
+        return map;
+    }
+    public int Comparable(Object o)
+    {
+        Fruit fruit = (Fruit) o;
+        if(weight<o.weight)
+        {
+            return -1;
+        }
+        else if(weight>o.weight)
+        {
+            return 1;
+        }
+        else if(weight==o.weight){
+            if(sugar_content<o.sugar_content)
+            {
+                return -1;
+            }
+            else if(sugar_content>o.sugar_content)
+            {
+                return 1;
+            }
+        }
+        return 0;
+    }
+
+    public static void prepareFruit(Arraylist<Fruit> fruits) {
         for (Fruit f: fruits){
             if(f instanceof Peelable){
                 ((Peelable) f).peelOff();

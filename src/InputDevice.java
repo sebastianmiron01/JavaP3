@@ -33,4 +33,10 @@ public class InputDevice {
         return new Fruit[]{new Banana(15, 3, 6), new Banana(25, 19, 2),
         new Apple(11, 4, 8, Fruit.Color.RED), new Mango(20, 4, 4, Fruit.Color.GREEN)};
     }
+    public Arraylist<Fruit> readFruit(){
+        ArrayList<Fruit> fruits = new ArrayList<>();
+        Arrays.asList(new Banana(15,3,6),new Banana(25,19,2),new Apple(11,4,8,Fruit.Color.RED),
+                new Mango(20,4,4,Fruit.Color.GREEN));
+        return fruits;
+    }
 }
