@@ -2,11 +2,18 @@ import fruits.Apple;
 import fruits.Banana;
 import fruits.Fruit;
 import fruits.Mango;
+import java.io.InputStream;
+
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class InputDevice {
-
+    public InputStream inputStream;
+    public InputDevice(InputStream inputStream)
+    {
+        this.inputStream=inputStream;
+    }
     public String getType(){
         return "random";
     }
@@ -24,6 +31,11 @@ public class InputDevice {
         return "The quick brown fox jumps over the lazy dog";
     }
 
+    public int nextnum()
+    {
+        Scanner in=new Scanner(inputStream);
+        return in.nextInt();
+    }
     public int nextInt() {
         Random rand = new Random();
         return rand.nextInt(100);

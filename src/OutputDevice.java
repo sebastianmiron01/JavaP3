@@ -1,5 +1,13 @@
+import java.io.IOException;
+import java.io.OutputStream;
+
 public class OutputDevice {
 
+    public OutputStream outputDevice;
+    public OutputDevice(OutputStream outputDevice)
+    {
+        this.outputDevice=outputDevice;
+    }
     public void writeMessage(String mess) {
         System.out.println(mess);
     }
